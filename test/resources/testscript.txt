@@ -1,0 +1,1 @@
+load test/resources/testImage.ppm test

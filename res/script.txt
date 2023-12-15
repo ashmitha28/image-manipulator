@@ -1,0 +1,53 @@
+load res/images/bird.jpg bird
+
+rgb-split bird bird-red bird-green bird-blue
+
+#give the bird a red tint
+
+#brighten just the red image
+brighten 50 bird-red bird-red
+
+#combine them back, but by using the brightened red we get a red tint
+rgb-combine bird-red-tint bird-red bird-green bird-blue
+save res/results/bird-red-tint.jpg bird-red-tint
+
+histogram bird bird-hist
+save res/results/bird-hist.jpg bird-hist
+
+color-correct bird-red-tint bird-corrected
+save res/results/bird-red-tint-corrected.jpg bird-corrected
+
+histogram bird-corrected bird-hist
+save res/results/bird-corrected-hist.jpg bird-corrected-hist
+
+levels-adjust 10 150 225 bird bird-level-adjust-1
+save res/results/bird-level-adjust-1.jpg bird-level-adjust-1
+
+histogram bird-level-adjust-1 bird-level-adjust-1-hist
+save res/results/bird-level-adjust-1-hist.jpg bird-level-adjust-1-hist
+
+levels-adjust 50 100 200 bird bird-level-adjust-2
+save res/results/bird-level-adjust-2.jpg bird-level-adjust-2
+
+histogram bird-level-adjust-1 bird-level-adjust-1-hist
+save res/results/bird-level-adjust-1-hist.jpg bird-level-adjust-1-hist
+
+compress 25 bird bird-compress25
+save res/results/bird-compress25.png bird-compress25
+
+histogram bird bird-compress25-hist
+save res/results/bird-compress25-hist.jpg bird-compress25-hist
+
+compress 90 bird bird-compress90
+save res/results/bird-compress90.png bird-compress90
+
+histogram bird bird-compress90-hist
+save res/results/bird-compress90-hist.jpg bird-compress90-hist
+
+blur bird bird-level-split split 60
+save res/results/bird-blur-split.jpg bird-blur-split
+
+sepia bird bird-sepiasplit split 30
+save res/results/bird-sepiasplit.jpg bird-sepiasplit
+
+exit

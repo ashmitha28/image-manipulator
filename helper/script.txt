@@ -1,0 +1,63 @@
+load images/bird.jpg bird
+
+rgb-split bird bird-red bird-green bird-blue
+save res/bird-blue.png bird-blue
+save res/bird-red.png bird-red
+save res/bird-green.png bird-green
+rgb-combine bird-combined bird-red bird-green bird-blue
+save res/bird-combined.png bird-combined
+
+blur bird bird-blur
+save res/bird-blur.jpg bird-blur
+
+sharpen bird bird-sharpen
+save res/bird-sharpen.jpg bird-sharpen
+
+sepia bird bird-sepia
+save res/bird-sepia.jpg bird-sepia
+
+#load vineyard.ppm and call it 'vineyard'
+load images/vineyard.ppm vineyard
+
+#brighten vineyard by adding 10
+brighten 10 vineyard vineyard-brighter
+
+#flip vineyard vertically
+vertical-flip vineyard vineyard-vertical
+
+#flip the vertically flipped vineyard horizontally
+horizontal-flip vineyard-vertical vineyard-vertical-horizontal
+
+save res/vineyard-vertical-horizontal.png vineyard-vertical-horizontal
+save res/vineyard-vertical.png vineyard-vertical
+
+#create a greyscale using only the value component, as an image vineyard-greyscale
+value-component vineyard vineyard-greyscale
+
+luma-component vineyard vineyard-luma
+
+intensity-component vineyard vineyard-intensity
+
+#save vineyard-brighter
+save res/vineyard-brighter.jpg vineyard-brighter
+
+#save vineyard-greyscale
+save res/vineyard-value-gs.jpg vineyard-greyscale
+save res/vineyard-luma.png vineyard-greyscale
+save res/vineyard-intensity.jpg vineyard-intensity
+
+#give the vineyard a red tint
+rgb-split vineyard vineyard-red vineyard-green vineyard-blue
+
+#brighten just the red image
+brighten 50 vineyard-red vineyard-red
+
+#combine them back, but by using the brightened red we get a red tint
+rgb-combine vineyard-red-tint vineyard-red vineyard-green vineyard-blue
+save res/vineyard-red-tint.ppm vineyard-red-tint
+
+#overwrite vineyard with another file
+load images/bird.png vineyard
+
+save res/vineyard-overwritten.jpg vineyard
+exit
